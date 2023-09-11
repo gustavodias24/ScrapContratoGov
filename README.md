@@ -6,4 +6,4 @@ Basicamente um webScrap com interface gráfica que consulta a api pública do go
 ![image](https://github.com/gustavodias24/ScrapContratoGov/assets/58337273/fb53cd6d-12ee-4e13-9f00-9e00e7dbb11c)
 
 
-Para instalar o executável basta clicar <a href="/gustavodias24/ScrapContratoGov/raw/main/dist/main.exe">aqui</a>
+Para instalar o executável basta clicar <a href="https://github.com/gustavodias24/ScrapContratoGov/raw/main/dist/main.exe">aqui</a>
