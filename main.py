@@ -4,13 +4,14 @@ import pandas as pd
 import os
 from tkinter import messagebox
 
-#pyinstaller --onefile main.py
+
+# pyinstaller --onefile main.py
 
 def iniciar_processo():
     data_inicio = entry_data_inicio.get()
     data_fim = entry_data_fim.get()
 
-    path_name = "ContratoScrap.xlsx"
+    path_name = "ContratoScrap.csv"
     BASE = "https://compras.dados.gov.br/comprasContratos/v1/contratos.json"
     response = rq.get(f"{BASE}?data_assinatura_max={data_fim}&data_assinatura_min={data_inicio}").json()["_embedded"]
 
@@ -23,15 +24,15 @@ def iniciar_processo():
         contratos_novos = [x for x in contratos_clean if x["id"] not in dados_antigos]
         df = pd.DataFrame(contratos_novos)
         df.sort_values(by="id")
-        df.to_excel(path_name, index=False)
+        df.to_csv(path_name, index=False)
 
     else:
         df = pd.DataFrame(contratos_clean)
         df.sort_values(by="id")
-        df.to_excel(path_name, index=False)
+        df.to_csv(path_name, index=False)
 
     # Exemplo simples: Mostrar um diálogo com as datas selecionadas
-    messagebox.showinfo("Sucesso!", "Os dados foram salvos no arquivo: ContratoScrap.xlsx")
+    messagebox.showinfo("Sucesso!", "Os dados foram salvos no arquivo: ContratoScrap.csv")
 
 
 # Criar a janela principal
